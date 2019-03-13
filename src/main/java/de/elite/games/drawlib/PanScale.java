@@ -28,15 +28,24 @@ public interface PanScale {
     /**
      * moves this object (changes the draw position) to the destination
      *
-     * @param dx destination
-     * @param dy destination
+     * @param panx destination
+     * @param pany destination
      */
-    void pan(double dx, double dy);
+    void pan(double panx, double pany);
 
     /**
      * @return the applied scale factor
      */
     double getScale();
+
+    double getScaledX();
+
+    double getScaledY();
+
+    double getTransformedX();
+
+    double getTransformedY();
+
 
     /**
      * @return the x-component of the pan
