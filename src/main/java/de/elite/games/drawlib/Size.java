@@ -2,7 +2,8 @@ package de.elite.games.drawlib;
 
 public interface Size {
 
-    double getWidth();
+    public double getWidth();
 
-    double getHeight();
+    public double getHeight();
+
 }
