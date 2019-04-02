@@ -1,11 +1,11 @@
 package de.elite.games.drawlib;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 public class Line implements Transformer, Transformed<Line> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Point.class);
+    //    private static final Logger LOGGER = LoggerFactory.getLogger(Point.class);
     private final Transformation<Line> transformation;
     private Point a;
     private Point b;
