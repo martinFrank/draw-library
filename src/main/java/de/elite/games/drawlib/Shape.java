@@ -31,26 +31,12 @@ public class Shape implements Transformer, Transformed<Shape>, Size {
         return new ShapeTransform();
     }
 
-    public void addPoint(Point point) {
-        if (!points.contains(point)) {
-            points.add(point);
-            sortPoints();
-            calculateSize();
-        }
-    }
-
     public Point getCenter() {
         return center;
     }
 
     public List<Point> getPoints() {
         return Collections.unmodifiableList(points);
-    }
-
-    public void setPoints(List<Point> points) {
-        this.points = points;
-        sortPoints();
-        calculateSize();
     }
 
     @Override
@@ -120,11 +106,6 @@ public class Shape implements Transformer, Transformed<Shape>, Size {
         width = right - left;
         height = top - bottom;
     }
-
-    private void sortPoints() {
-        Collections.sort(points);
-    }
-
 
     private class ShapeTransform extends Transformation<Shape> {
 

@@ -9,29 +9,7 @@ import java.util.List;
 
 public class ShapeTest {
 
-    static Shape createSquare() {
-        Point a = new Point(0, 0);
-        Point b = new Point(2, 0);
-        Point c = new Point(2, 2);
-        Point d = new Point(0, 2);
-        Point m = new Point(1, 1);
-        List<Point> points = Arrays.asList(a, b, c, d);
-        List<Line> lines = createLines(points);
-        Shape square = new Shape(m, points, lines);
-        Assert.assertEquals(2, square.getWidth(), 0);
-        Assert.assertEquals(2, square.getHeight(), 0);
-        return square;
-    }
 
-    private static List<Line> createLines(List<Point> points) {
-        List<Line> lines = new ArrayList<>();
-        for (int i = 0; i < points.size(); i++) {
-            Point a = points.get(i);
-            Point b = points.get(i + 1 == points.size() ? 0 : i + 1);
-            lines.add(new Line(a, b));
-        }
-        return lines;
-    }
 
     @Test
     public void scaleTest() {
@@ -91,12 +69,59 @@ public class ShapeTest {
         }
     }
 
+    //used in mapLib
+    public static Shape createSquare() {
+        Point a = new Point(0, 0);
+        Point b = new Point(2, 0);
+        Point c = new Point(2, 2);
+        Point d = new Point(0, 2);
+        Point m = new Point(1, 1);
+        List<Point> points = Arrays.asList(a, b, c, d);
+        List<Line> lines = createLines(points);
+        Shape square = new Shape(m, points, lines);
+        Assert.assertEquals(2, square.getWidth(), 0);
+        Assert.assertEquals(2, square.getHeight(), 0);
+        return square;
+    }
+
+    private static Shape createSquareByPoints() {
+        Point a = new Point(0, 0);
+        Point b = new Point(2, 0);
+        Point c = new Point(2, 2);
+        Point d = new Point(0, 2);
+        Point m = new Point(1, 1);
+        List<Point> points = Arrays.asList(a, b, c, d);
+        List<Line> lines = createLines(points);
+        Shape square = new Shape(m, points, lines);
+        Assert.assertEquals(2, square.getWidth(), 0);
+        Assert.assertEquals(2, square.getHeight(), 0);
+        return square;
+    }
+
+    private static List<Line> createLines(List<Point> points) {
+        List<Line> lines = new ArrayList<>();
+        for (int i = 0; i < points.size(); i++) {
+            Point a = points.get(i);
+            Point b = points.get(i + 1 == points.size() ? 0 : i + 1);
+            lines.add(new Line(a, b));
+        }
+        return lines;
+    }
+
+    @Test
+    public void rotateTest() {
+        Shape s1 = createSquare();
+        s1.rotate(1, 2, 3);
+        Shape s2 = createSquare();
+        Assert.assertEquals(s1, s2);
+    }
+
     @Test
     public void equalTest() {
         Shape s1 = createSquare();
         Shape s2 = createSquare();
         Assert.assertEquals(s1, s2);
+        Assert.assertEquals(s1.hashCode(), s2.hashCode());
     }
-
 }
 
