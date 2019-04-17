@@ -1,17 +1,13 @@
 package de.elite.games.drawlib;
 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-//import java.util.stream.Collectors;
 
 public class Shape implements Transformer, Transformed<Shape>, Size {
 
-//    private static final Logger LOGGER = LoggerFactory.getLogger(Shape.class);
 
     private final Transformation<Shape> transformation;
     private Point center;
@@ -26,18 +22,14 @@ public class Shape implements Transformer, Transformed<Shape>, Size {
         this.points = points;
         this.lines = lines;
         calculateSize();
-//        LOGGER.debug("created shape... {} {} {}",center, points, lines);
     }
 
 
     public Shape() {
-//        this(new Point(0, 0), new ArrayList<>(), new ArrayList<>());
         this(new Point(0, 0), new ArrayList<Point>(), new ArrayList<Line>());
     }
 
     private static Point createIntermediate(Collection<? extends Point> points) {
-//        double xs = points.stream().mapToDouble(Point::getX).sum();
-//        double ys = points.stream().mapToDouble(Point::getY).sum();
         double xs = 0;
         double ys = 0;
         for (Point point : points) {
@@ -58,12 +50,10 @@ public class Shape implements Transformer, Transformed<Shape>, Size {
             @Override
             public Shape getTransformed() {
                 if (isDirty) {
-//                    List<Point> tPoints = points.stream().map(Point::getTransformed).collect(Collectors.toList());
                     List<Point> tPoints = new ArrayList<>();
                     for (Point point : points) {
                         tPoints.add(point.getTransformed());
                     }
-//                    List<Line> tLines = lines.stream().map(Line::getTransformed).collect(Collectors.toList());
                     List<Line> tLines = new ArrayList<>();
                     for (Line line : lines) {
                         tLines.add(line.getTransformed());
@@ -78,11 +68,10 @@ public class Shape implements Transformer, Transformed<Shape>, Size {
 
             @Override
             public void scale(double scale) {
-//                points.forEach(p -> p.scale(scale));
                 for (Point point : points) {
                     point.scale(scale);
                 }
-//                lines.forEach(l -> l.scale(scale));
+
                 for (Line line : lines) {
                     line.scale(scale);
                 }
@@ -93,11 +82,9 @@ public class Shape implements Transformer, Transformed<Shape>, Size {
 
             @Override
             public void pan(double dx, double dy) {
-//                points.forEach(p -> p.pan(dx, dy));
                 for (Point point : points) {
                     point.pan(dx, dy);
                 }
-//                lines.forEach(l -> l.pan(dx, dy));
                 for (Line line : lines) {
                     line.pan(dx, dy);
                 }
@@ -108,11 +95,9 @@ public class Shape implements Transformer, Transformed<Shape>, Size {
 
             @Override
             public void rotate(double rot, double x, double y) {
-//                points.forEach(p -> p.rotate(rot, x, y));
                 for (Point point : points) {
                     point.rotate(rot, x, y);
                 }
-//                lines.forEach(l -> l.rotate(rot, x, y));
                 for (Line line : lines) {
                     line.rotate(rot, x, y);
                 }
@@ -209,7 +194,6 @@ public class Shape implements Transformer, Transformed<Shape>, Size {
             right = Math.max(point.getX(), right);
             top = Math.max(point.getY(), top);
         }
-//        LOGGER.debug("calculateSize: l/r/b/t {}/{}/{}/{}", left, right, bottom, top);
         width = right - left;
         height = top - bottom;
     }

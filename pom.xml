@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.elite.games</groupId>
     <artifactId>drawlib</artifactId>
-    <version>0.4.0</version>
 
+    <version>0.4.0</version>
     <name>drawlib</name>
     <description>this project provides a draw library</description>
     <organization>
@@ -18,10 +18,18 @@
         <sonar.organization>martinfrank-github</sonar.organization>
         <sonar.language>java</sonar.language>
         <sonar.scm.provider>git</sonar.scm.provider>
-
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <pluginManagement>
@@ -73,22 +81,18 @@
                         </execution>
                     </executions>
                 </plugin>
-
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>2.5</version>
                 </plugin>
-
                 <plugin>
                     <artifactId>maven-source-plugin</artifactId>
                     <version>3.0.1</version>
                 </plugin>
-
                 <plugin>
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>2.6</version>
                 </plugin>
-
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.6.1</version>
@@ -97,24 +101,21 @@
                         <target>1.7</target>
                     </configuration>
                 </plugin>
-
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.12.4</version>
                 </plugin>
-
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>3.0.2</version>
                 </plugin>
-
                 <plugin>
                     <artifactId>maven-deploy-plugin</artifactId>
                     <version>2.7</version>
                 </plugin>
-
             </plugins>
         </pluginManagement>
+
         <plugins>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -124,20 +125,6 @@
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
             </plugin>
-
         </plugins>
     </build>
-
-
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-
-
-    </dependencies>
 </project>

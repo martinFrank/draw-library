@@ -1,16 +1,11 @@
 package de.elite.games.drawlib;
 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-//import java.util.stream.Collectors;
 
 public class Aggregation implements Transformer, Transformed<Aggregation>, Size {
 
-    //    private static final Logger LOGGER = LoggerFactory.getLogger(Aggregation.class);
     private final Transformation<Aggregation> transformation;
     private List<Shape> shapes;
     private double width;
@@ -23,7 +18,6 @@ public class Aggregation implements Transformer, Transformed<Aggregation>, Size 
     }
 
     public Aggregation() {
-//        this(new ArrayList<>());
         this(new ArrayList<Shape>());
     }
 
@@ -35,10 +29,7 @@ public class Aggregation implements Transformer, Transformed<Aggregation>, Size 
 
             @Override
             public Aggregation getTransformed() {
-//                LOGGER.debug("getTransformed, isDirty={}", isDirty);
                 if (isDirty) {
-//                    List<Shape> transformed = shapes.stream().
-//                            map(Shape::getTransformed).collect(Collectors.toList());
                     List<Shape> transformed = new ArrayList<>();
                     for (Shape shape : shapes) {
                         transformed.add(shape.getTransformed());
@@ -52,7 +43,6 @@ public class Aggregation implements Transformer, Transformed<Aggregation>, Size 
 
             @Override
             public void scale(double scale) {
-//                shapes.forEach(s -> s.scale(scale));
                 for (Shape shape : shapes) {
                     shape.scale(scale);
                 }
@@ -62,7 +52,6 @@ public class Aggregation implements Transformer, Transformed<Aggregation>, Size 
 
             @Override
             public void pan(double dx, double dy) {
-//                shapes.forEach(s -> s.pan(dx, dy));
                 for (Shape shape : shapes) {
                     shape.pan(dx, dy);
                 }
@@ -72,7 +61,6 @@ public class Aggregation implements Transformer, Transformed<Aggregation>, Size 
 
             @Override
             public void rotate(double rot, double x, double y) {
-//                shapes.forEach(s -> s.rotate(rot, x, y));
                 for (Shape shape : shapes) {
                     shape.rotate(rot, x, y);
                 }

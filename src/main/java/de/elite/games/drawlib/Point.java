@@ -1,11 +1,8 @@
 package de.elite.games.drawlib;
 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
 
 public class Point implements Transformer, Transformed<Point>, Comparable<Point> {
 
-    //    private static final Logger LOGGER = LoggerFactory.getLogger(Point.class);
     private final Transformation<Point> transformation;
     private double x;
     private double y;
@@ -36,7 +33,6 @@ public class Point implements Transformer, Transformed<Point>, Comparable<Point>
                 if (isDirty) {
                     double xTransformed = transformation.getPanX() + (x * transformation.getScale());
                     double yTransformed = transformation.getPanY() + (y * transformation.getScale());
-//                    LOGGER.debug("transformed x/y:{}/{} -> {}/{}", x, y, xTransformed, yTransformed);
                     transformed = new Point(xTransformed, yTransformed);
                 }
                 isDirty = false;
@@ -106,29 +102,6 @@ public class Point implements Transformer, Transformed<Point>, Comparable<Point>
         return "Point [" + String.format("%3.1f", x) + "/" + String.format("%3.1f", y) + "]";
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        Point that = (Point) o;
-//
-//        if (Double.compare(that.x, x) != 0) return false;
-//        return Double.compare(that.y, y) == 0;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result;
-//        long temp;
-//        temp = Double.doubleToLongBits(x);
-//        result = (int) (temp ^ (temp >>> 32));
-//        temp = Double.doubleToLongBits(y);
-//        result = 31 * result + (int) (temp ^ (temp >>> 32));
-//        return result;
-//    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -142,8 +115,6 @@ public class Point implements Transformer, Transformed<Point>, Comparable<Point>
 
     @Override
     public int hashCode() {
-//        return Objects.hash(x,y);
-//        return super.hashCode();
         return ("" + x + ":" + y).hashCode();
     }
 
