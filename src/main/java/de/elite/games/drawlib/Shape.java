@@ -28,71 +28,7 @@ public class Shape implements Transformer, Transformed<Shape>, Size {
     }
 
     private Transformation<Shape> createTransformation() {
-
-        return new Transformation<Shape>() {
-
-            private boolean isDirty = true;
-            private Shape transformedShape;
-
-            @Override
-            public Shape getTransformed() {
-                if (isDirty) {
-                    List<Point> tPoints = new ArrayList<>();
-                    for (Point point : points) {
-                        tPoints.add(point.getTransformed());
-                    }
-                    List<Line> tLines = new ArrayList<>();
-                    for (Line line : lines) {
-                        tLines.add(line.getTransformed());
-                    }
-                    Point transformedCenter = center.getTransformed();
-                    transformedShape = new Shape(transformedCenter, tPoints, tLines);
-                    transformedShape.calculateSize();
-                }
-                isDirty = false;
-                return transformedShape;
-            }
-
-            @Override
-            public void scale(double scale) {
-                for (Point point : points) {
-                    point.scale(scale);
-                }
-
-                for (Line line : lines) {
-                    line.scale(scale);
-                }
-                center.scale(scale);
-                super.scale(scale);
-                isDirty = true;
-            }
-
-            @Override
-            public void pan(double dx, double dy) {
-                for (Point point : points) {
-                    point.pan(dx, dy);
-                }
-                for (Line line : lines) {
-                    line.pan(dx, dy);
-                }
-                center.pan(dx, dy);
-                super.pan(dx, dy);
-                isDirty = true;
-            }
-
-            @Override
-            public void rotate(double rot, double x, double y) {
-                for (Point point : points) {
-                    point.rotate(rot, x, y);
-                }
-                for (Line line : lines) {
-                    line.rotate(rot, x, y);
-                }
-                center.rotate(rot, x, y);
-                super.rotate(rot, x, y);
-                isDirty = true;
-            }
-        };
+        return new ShapeTransform();
     }
 
     public void addPoint(Point point) {
@@ -187,6 +123,72 @@ public class Shape implements Transformer, Transformed<Shape>, Size {
 
     private void sortPoints() {
         Collections.sort(points);
+    }
+
+
+    private class ShapeTransform extends Transformation<Shape> {
+
+        private boolean isDirty = true;
+        private Shape transformedShape;
+
+        @Override
+        public Shape getTransformed() {
+            if (isDirty) {
+                List<Point> tPoints = new ArrayList<>();
+                for (Point point : points) {
+                    tPoints.add(point.getTransformed());
+                }
+                List<Line> tLines = new ArrayList<>();
+                for (Line line : lines) {
+                    tLines.add(line.getTransformed());
+                }
+                Point transformedCenter = center.getTransformed();
+                transformedShape = new Shape(transformedCenter, tPoints, tLines);
+                transformedShape.calculateSize();
+            }
+            isDirty = false;
+            return transformedShape;
+        }
+
+        @Override
+        public void scale(double scale) {
+            for (Point point : points) {
+                point.scale(scale);
+            }
+
+            for (Line line : lines) {
+                line.scale(scale);
+            }
+            center.scale(scale);
+            super.scale(scale);
+            isDirty = true;
+        }
+
+        @Override
+        public void pan(double dx, double dy) {
+            for (Point point : points) {
+                point.pan(dx, dy);
+            }
+            for (Line line : lines) {
+                line.pan(dx, dy);
+            }
+            center.pan(dx, dy);
+            super.pan(dx, dy);
+            isDirty = true;
+        }
+
+        @Override
+        public void rotate(double rot, double x, double y) {
+            for (Point point : points) {
+                point.rotate(rot, x, y);
+            }
+            for (Line line : lines) {
+                line.rotate(rot, x, y);
+            }
+            center.rotate(rot, x, y);
+            super.rotate(rot, x, y);
+            isDirty = true;
+        }
     }
 
 }

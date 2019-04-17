@@ -94,20 +94,14 @@ public class Line extends PanScaleRot<Line> {
         if (b.equals(other.a)) {
             return true;
         }
-        if (b.equals(other.b)) {
-            return true;
-        }
-        return false;
+        return b.equals(other.b);
     }
 
     public boolean isConnectedTo(Point other) {
         if (a.equals(other)) {
             return true;
         }
-        if (b.equals(other)) {
-            return true;
-        }
-        return false;
+        return b.equals(other);
     }
 
     public void set(Point a, Point b) {
@@ -142,10 +136,7 @@ public class Line extends PanScaleRot<Line> {
         if (a.equals(line.a) && b.equals(line.b)) {
             return true;
         }
-        if (b.equals(line.a) && a.equals(line.b)) {
-            return true;
-        }
-        return false;
+        return b.equals(line.a) && a.equals(line.b);
     }
 
     @Override

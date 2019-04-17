@@ -5,7 +5,6 @@ public abstract class Transformation<T> implements Transformer, Transformed<T> {
     private double scale = 1;
     private double panx;
     private double pany;
-    private double rot;
 
     @Override
     public void scale(double scale) {
