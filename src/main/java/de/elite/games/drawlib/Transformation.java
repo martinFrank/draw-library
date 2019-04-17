@@ -23,9 +23,6 @@ public abstract class Transformation<T> implements Transformer, Transformed<T> {
 
     }
 
-    public abstract T getTransformed();
-
-
     double getScale() {
         return scale;
     }

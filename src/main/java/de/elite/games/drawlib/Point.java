@@ -77,26 +77,6 @@ public class Point extends PanScaleRot<Point> implements Comparable<Point> {
         return y;
     }
 
-//    @Override
-//    public Point getTransformed() {
-//        return transformation.getTransformed();
-//    }
-//
-//    @Override
-//    public void scale(double scale) {
-//        transformation.scale(scale);
-//    }
-//
-//    @Override
-//    public void pan(double dx, double dy) {
-//        transformation.pan(dx, dy);
-//    }
-//
-//    @Override
-//    public void rotate(double rot, double x, double y) {
-//        transformation.rotate(rot, x, y);
-//    }
-
     @Override
     public String toString() {
         return "Point [" + String.format("%3.1f", x) + "/" + String.format("%3.1f", y) + "]";
