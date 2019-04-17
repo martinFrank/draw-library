@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Aggregation implements Transformer, Transformed<Aggregation>, Size {
+public class Aggregation extends PanScaleRot<Aggregation> implements Size {
 
-    private final Transformation<Aggregation> transformation;
+
     private List<Shape> shapes;
     private double width;
     private double height;
 
     public Aggregation(List<Shape> shapes) {
-        transformation = createTransformation();
+        super();
         this.shapes = shapes;
         calculateSize();
     }
@@ -21,7 +21,9 @@ public class Aggregation implements Transformer, Transformed<Aggregation>, Size 
         this(new ArrayList<Shape>());
     }
 
-    private Transformation<Aggregation> createTransformation() {
+    @Override
+    Transformation<Aggregation> createTransformation() {
+
         return new Transformation<Aggregation>() {
 
             private boolean isDirty = true;
@@ -68,26 +70,6 @@ public class Aggregation implements Transformer, Transformed<Aggregation>, Size 
                 isDirty = true;
             }
         };
-    }
-
-    @Override
-    public Aggregation getTransformed() {
-        return transformation.getTransformed();
-    }
-
-    @Override
-    public void scale(double scale) {
-        transformation.scale(scale);
-    }
-
-    @Override
-    public void pan(double dx, double dy) {
-        transformation.pan(dx, dy);
-    }
-
-    @Override
-    public void rotate(double rot, double x, double y) {
-        transformation.rotate(rot, x, y);
     }
 
     @Override

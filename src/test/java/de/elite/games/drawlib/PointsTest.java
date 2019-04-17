@@ -35,7 +35,6 @@ public class PointsTest {
             for (int dx = -100; dx < 100; dx++) {
                 Point point = new Point(dx, dy);
                 Point testee = points.get(point);
-                System.out.println("x/y " + dx + "/" + dy);
                 Assert.assertEquals(point, testee);
             }
         }

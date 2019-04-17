@@ -2,7 +2,6 @@ package de.elite.games.drawlib;
 
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -24,20 +23,8 @@ public class Shape implements Transformer, Transformed<Shape>, Size {
         calculateSize();
     }
 
-
     public Shape() {
         this(new Point(0, 0), new ArrayList<Point>(), new ArrayList<Line>());
-    }
-
-    private static Point createIntermediate(Collection<? extends Point> points) {
-        double xs = 0;
-        double ys = 0;
-        for (Point point : points) {
-            xs = xs + point.getX();
-            ys = ys + point.getY();
-        }
-        int s = points.size();
-        return new Point(xs / s, ys / s);
     }
 
     private Transformation<Shape> createTransformation() {

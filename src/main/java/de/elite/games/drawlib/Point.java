@@ -1,9 +1,8 @@
 package de.elite.games.drawlib;
 
 
-public class Point implements Transformer, Transformed<Point>, Comparable<Point> {
+public class Point extends PanScaleRot<Point> implements Comparable<Point> {
 
-    private final Transformation<Point> transformation;
     private double x;
     private double y;
 
@@ -16,12 +15,13 @@ public class Point implements Transformer, Transformed<Point>, Comparable<Point>
     }
 
     public Point(double x, double y) {
+        super();
         this.x = x;
         this.y = y;
-        transformation = createTransformation();
     }
 
-    private Transformation<Point> createTransformation() {
+    @Override
+    Transformation<Point> createTransformation() {
 
         return new Transformation<Point>() {
 
@@ -31,8 +31,8 @@ public class Point implements Transformer, Transformed<Point>, Comparable<Point>
             @Override
             public Point getTransformed() {
                 if (isDirty) {
-                    double xTransformed = transformation.getPanX() + (x * transformation.getScale());
-                    double yTransformed = transformation.getPanY() + (y * transformation.getScale());
+                    double xTransformed = this.getPanX() + (x * this.getScale());
+                    double yTransformed = this.getPanY() + (y * this.getScale());
                     transformed = new Point(xTransformed, yTransformed);
                 }
                 isDirty = false;
@@ -77,25 +77,25 @@ public class Point implements Transformer, Transformed<Point>, Comparable<Point>
         return y;
     }
 
-    @Override
-    public Point getTransformed() {
-        return transformation.getTransformed();
-    }
-
-    @Override
-    public void scale(double scale) {
-        transformation.scale(scale);
-    }
-
-    @Override
-    public void pan(double dx, double dy) {
-        transformation.pan(dx, dy);
-    }
-
-    @Override
-    public void rotate(double rot, double x, double y) {
-        transformation.rotate(rot, x, y);
-    }
+//    @Override
+//    public Point getTransformed() {
+//        return transformation.getTransformed();
+//    }
+//
+//    @Override
+//    public void scale(double scale) {
+//        transformation.scale(scale);
+//    }
+//
+//    @Override
+//    public void pan(double dx, double dy) {
+//        transformation.pan(dx, dy);
+//    }
+//
+//    @Override
+//    public void rotate(double rot, double x, double y) {
+//        transformation.rotate(rot, x, y);
+//    }
 
     @Override
     public String toString() {

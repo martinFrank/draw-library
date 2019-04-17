@@ -1,9 +1,8 @@
 package de.elite.games.drawlib;
 
 
-public class Line implements Transformer, Transformed<Line> {
+public class Line extends PanScaleRot<Line> {
 
-    private final Transformation<Line> transformation;
     private Point a;
     private Point b;
     private Point center;
@@ -17,10 +16,10 @@ public class Line implements Transformer, Transformed<Line> {
     }
 
     private Line(Point a, Point b, Point c) {
+        super();
         this.a = a;
         this.b = b;
         center = c;
-        transformation = createTransformation();
     }
 
     public Line(double ax, double ay, double bx, double by) {
@@ -33,7 +32,8 @@ public class Line implements Transformer, Transformed<Line> {
         return new Point(x, y);
     }
 
-    private Transformation<Line> createTransformation() {
+    @Override
+    Transformation<Line> createTransformation() {
 
         return new Transformation<Line>() {
 
@@ -128,25 +128,6 @@ public class Line implements Transformer, Transformed<Line> {
         return center;
     }
 
-    public Line getTransformed() {
-        return transformation.getTransformed();
-    }
-
-    @Override
-    public void scale(double scale) {
-        transformation.scale(scale);
-    }
-
-    @Override
-    public void pan(double dx, double dy) {
-        transformation.pan(dx, dy);
-    }
-
-    @Override
-    public void rotate(double rot, double x, double y) {
-        transformation.rotate(rot, x, y);
-    }
-
     @Override
     public String toString() {
         return "Line  from " + a + " to " + b;
@@ -170,6 +151,5 @@ public class Line implements Transformer, Transformed<Line> {
     @Override
     public int hashCode() {
         return a.hashCode() * b.hashCode();
-//        return Objects.hash(a,b);
     }
 }

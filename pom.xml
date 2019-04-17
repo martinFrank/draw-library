@@ -4,7 +4,7 @@
     <groupId>de.elite.games</groupId>
     <artifactId>drawlib</artifactId>
 
-    <version>0.4.0</version>
+    <version>0.4.1</version>
     <name>drawlib</name>
     <description>this project provides a draw library</description>
     <organization>

@@ -27,19 +27,10 @@ public class LinesTest {
 
     @Test
     public void hashTest() {
-//        Point a = new Point(1,1);
-//        Point b = new Point(2,2);
-//        Line ab = new Line(a,b);
-//        Line ba = new Line(b,a);
-//        System.out.println(ab.hashCode());
-//        System.out.println(ba.hashCode());
-
         Point a = new Point(0, 0);
         Point b = new Point(2, 2);
         Line ab = new Line(a, b);
         Line ba = new Line(b, a);
-        System.out.println(ab.hashCode());
-        System.out.println(ba.hashCode());
-
+        Assert.assertEquals(ab.hashCode(), ba.hashCode());
     }
 }
