@@ -7,6 +7,7 @@
     <version>0.4.1</version>
     <name>drawlib</name>
     <description>this project provides a draw library</description>
+    <url>https://github.com/martinFrank/draw-library</url>
     <organization>
         <name>Martin Frank</name>
     </organization>
@@ -173,6 +174,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
