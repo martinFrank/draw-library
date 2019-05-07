@@ -39,6 +39,7 @@
         <sonar.projectKey>martinFrank_draw-library</sonar.projectKey>
         <sonar.organization>martinfrank-github</sonar.organization>
         <sonar.language>java</sonar.language>
+        <sonar.java.libraries>target</sonar.java.libraries>
         <sonar.scm.provider>git</sonar.scm.provider>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
