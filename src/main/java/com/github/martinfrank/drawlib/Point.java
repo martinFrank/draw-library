@@ -1,4 +1,4 @@
-package de.elite.games.drawlib;
+package com.github.martinfrank.drawlib;
 
 
 public class Point extends PanScaleRot<Point> implements Comparable<Point> {

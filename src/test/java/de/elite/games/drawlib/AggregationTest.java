@@ -1,5 +1,7 @@
 package de.elite.games.drawlib;
 
+import com.github.martinfrank.drawlib.Aggregation;
+import com.github.martinfrank.drawlib.Shape;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,5 +1,6 @@
 package de.elite.games.drawlib;
 
+import com.github.martinfrank.drawlib.Point;
 import org.junit.Assert;
 import org.junit.Test;
 

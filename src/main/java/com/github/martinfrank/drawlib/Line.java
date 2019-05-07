@@ -1,4 +1,4 @@
-package de.elite.games.drawlib;
+package com.github.martinfrank.drawlib;
 
 
 public class Line extends PanScaleRot<Line> {
