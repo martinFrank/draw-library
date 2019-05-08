@@ -1,6 +1,7 @@
 container:
   #image: maven:3
-  image: openjdk:8-jdk
+  #image: openjdk:8-jdk
+  image: maven:latest
 
 build_task:
   build_script: mvn clean install
