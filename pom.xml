@@ -183,6 +183,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <source>1.7</source>
+                </configuration>
             </plugin>
 
             <plugin>
