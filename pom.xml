@@ -40,6 +40,7 @@
         <sonar.organization>martinfrank-github</sonar.organization>
         <sonar.language>java</sonar.language>
         <sonar.java.libraries>target</sonar.java.libraries>
+        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
         <sonar.scm.provider>git</sonar.scm.provider>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
@@ -89,31 +90,32 @@
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
+                    <!--<version>0.8.2</version>-->
                     <version>0.8.2</version>
-                    <configuration>
-                        <append>true</append>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>prepare-agent</id>
-                            <goals>
-                                <goal>prepare-agent</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>prepare-agent-integration</id>
-                            <goals>
-                                <goal>prepare-agent-integration</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>jacoco-site</id>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>report</goal>
-                            </goals>
-                        </execution>
-                    </executions>
+                    <!--<configuration>-->
+                    <!--<append>true</append>-->
+                    <!--</configuration>-->
+                    <!--<executions>-->
+                    <!--<execution>-->
+                    <!--<id>prepare-agent</id>-->
+                    <!--<goals>-->
+                    <!--<goal>prepare-agent</goal>-->
+                    <!--</goals>-->
+                    <!--</execution>-->
+                    <!--<execution>-->
+                    <!--<id>prepare-agent-integration</id>-->
+                    <!--<goals>-->
+                    <!--<goal>prepare-agent-integration</goal>-->
+                    <!--</goals>-->
+                    <!--</execution>-->
+                    <!--<execution>-->
+                    <!--<id>jacoco-site</id>-->
+                    <!--<phase>verify</phase>-->
+                    <!--<goals>-->
+                    <!--<goal>report</goal>-->
+                    <!--</goals>-->
+                    <!--</execution>-->
+                    <!--</executions>-->
                 </plugin>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
@@ -154,6 +156,38 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
+                <!--<configuration>-->
+                <!--<append>true</append>-->
+                <!--</configuration>-->
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>prepare-agent-integration</id>
+                        <goals>
+                            <goal>prepare-agent-integration</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jacoco-site</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
