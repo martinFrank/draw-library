@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.martinfrank</groupId>
     <artifactId>drawlib</artifactId>
-
     <version>0.4.1</version>
+
     <name>drawlib</name>
     <description>this project provides a draw library</description>
     <url>https://github.com/martinFrank/draw-library</url>
